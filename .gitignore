@@ -14,13 +14,11 @@ __pycache__/
 # Output files (allow specific notebook outputs)
 *.jpg
 *.jpeg
-# Allow notebook output files
-!mountain_city_elevation_comparison.png
-!mountain_city_elevation_comparison.csv
-!CESM_terrain_US_multiresolution.png
-!CESM_terrain_US_*.png
-!CESM_terrain_NA_multiresolution.png
-!CESM_terrain_NA_*.png
+# Allow output folder contents
+!output/
+output/*
+!output/*.png
+!output/*.csv
 
 # Environment files
 .env
