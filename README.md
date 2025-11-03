@@ -56,7 +56,7 @@ CESM_terrain_snow/
    ```
 
 4. **Obtain CESM data files**
-   - Download the three required CESM topography NetCDF files (see Data Requirements)
+   - Download the three required CESM topography NetCDF files using the curl commands provided in the [Data Requirements](#-data-requirements) section below
    - Place them in the same directory as the notebooks
 
 5. **Launch Jupyter**
@@ -104,7 +104,22 @@ This repository requires three CESM topography NetCDF files (not included due to
 2. **Medium Resolution**: `fv_0.9x1.25_nc3000_Nsw042_Nrs008_Co060_Fi001_ZR_160505.nc`
 3. **Fine Resolution**: `fv_0.47x0.63_nc3000_Co030_Fi001_PF_nullRR_Nsw021_20171023.nc`
 
-**Note**: These files are large (>50MB) and exceed GitHub's file size limits. Users must obtain these files separately. Check the CESM project website or contact the CESM Data Management Group for access.
+**Download Instructions**:
+
+These files can be downloaded directly from the CESM input data repository using the following commands:
+
+```bash
+# Coarse resolution (~1.9°×2.5°)
+curl -O https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/atm/cam/topo/fv_1.9x2.5_nc3000_Nsw084_Nrs016_Co120_Fi001_ZR_GRNL_031819.nc
+
+# Medium resolution (~0.9°×1.25°)
+curl -O https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/atm/cam/topo/fv_0.9x1.25_nc3000_Nsw042_Nrs008_Co060_Fi001_ZR_160505.nc
+
+# Fine resolution (~0.47°×0.63°)
+curl -O https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/atm/cam/topo/fv_0.47x0.63_nc3000_Co030_Fi001_PF_nullRR_Nsw021_20171023.nc
+```
+
+**Note**: These files are large (>50MB, with the fine resolution file being ~390MB) and exceed GitHub's file size limits. Ensure you have sufficient disk space and a stable internet connection for downloading.
 
 ### Elevation Data Sources
 
