@@ -130,6 +130,71 @@ Real-world elevation data used in this analysis is verified from:
 - Official city/municipal records
 - SNOTEL station metadata (NRCS)
 
+## Understanding Geopotential vs. Geometric Elevation
+
+When working with CESM data, you'll notice that elevation is stored as **geopotential** (PHIS) rather than geometric height in meters. This section explains why and how we convert between these two representations.
+
+### What is Geopotential?
+
+**Geopotential** (denoted as Φ or PHIS in CESM files) represents the gravitational potential energy per unit mass at a given location. It has units of **m²/s²** (meters squared per second squared), which might seem strange at first!
+
+Think of it this way: if you lift a mass from sea level to some height, you're doing work against gravity. Geopotential measures how much work per unit mass would be required to lift an object from sea level to that point. The higher you go, the more geopotential energy you have.
+
+### Why Does CESM Use Geopotential?
+
+Climate models like CESM use geopotential instead of geometric height for several important reasons:
+
+1. **Physical accuracy**: Geopotential accounts for Earth's shape and gravity variations. Since Earth isn't a perfect sphere and gravity varies with latitude and elevation, geopotential provides a more physically meaningful measure for atmospheric dynamics.
+
+2. **Model convenience**: Atmospheric models solve equations that directly involve geopotential. Gravity appears naturally in these equations, making geopotential the "natural" variable for the model's physics.
+
+3. **Coordinate system**: CESM uses a pressure-based coordinate system where geopotential surfaces (surfaces of constant Φ) are more meaningful than surfaces of constant geometric height.
+
+### Converting Geopotential to Elevation
+
+To convert geopotential (PHIS) to geometric elevation in meters, we use the relationship:
+
+```
+Geometric Height = Geopotential / Standard Gravity
+```
+
+In mathematical notation:
+```
+h = Φ / g₀
+```
+
+Where:
+- **h** = geometric height in meters
+- **Φ** (PHIS) = geopotential in m²/s²
+- **g₀** = standard gravity = 9.8065 m/s²
+
+### Why Standard Gravity?
+
+You might wonder: "If gravity varies, why use a constant value?"
+
+Using standard gravity (g₀ = 9.8065 m/s²) is an approximation that works well for most purposes. The geopotential itself already accounts for gravity variations—that's built into its definition. By dividing by standard gravity, we're essentially asking: "If gravity were constant everywhere, what height would this geopotential correspond to?"
+
+For visualization and comparison with datasets like SRTM (which use geometric height), this approximation is excellent—the errors are typically less than 1% and often much smaller.
+
+### In Our Code
+
+You'll see this conversion in all our notebooks:
+
+```python
+# Convert geopotential (PHIS) to elevation in meters
+g0 = 9.8065  # Standard gravity in m/s²
+elevation = PHIS / g0
+```
+
+This simple division transforms the geopotential values from CESM (which are in m²/s²) into geometric elevation values (in meters) that we can easily visualize and compare with real-world elevation data.
+
+### Key Takeaway
+
+- **CESM stores**: Geopotential (PHIS) in m²/s² - the "natural" variable for atmospheric physics
+- **We convert to**: Geometric elevation in meters - the familiar unit for visualization and comparison
+- **Conversion method**: Divide by standard gravity (9.8065 m/s²)
+- **Result**: Elevation values that can be directly compared with SRTM and other elevation datasets
+
 ## Dependencies
 
 See `requirements.txt` for the complete list. Key dependencies include:
