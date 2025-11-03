@@ -2,7 +2,7 @@
 
 A comprehensive analysis of CESM (Community Earth System Model) terrain representation accuracy, comparing model elevation predictions with actual elevations for major mountain cities and passes across the western United States at multiple grid resolutions.
 
-## 📋 Overview
+## Overview
 
 This repository contains Jupyter notebooks that analyze how CESM grid resolution affects elevation representation at specific locations, highlighting the trade-offs between model resolution and computational cost for terrain-dependent climate studies.
 
@@ -14,7 +14,7 @@ This repository contains Jupyter notebooks that analyze how CESM grid resolution
 - **Statistical evaluation**: Provides comprehensive error metrics (MAE, RMSE, Bias, Max Error) for each resolution
 - **Visualization**: Creates publication-quality maps and comparison tables
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```
 CESM_terrain_snow/
@@ -28,7 +28,7 @@ CESM_terrain_snow/
 └── [CESM data files]                     # Not included (see Data Requirements)
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -64,7 +64,7 @@ CESM_terrain_snow/
    jupyter notebook
    ```
 
-## 📊 Notebooks
+## Notebooks
 
 ### 1. Mountain City and Pass Elevation Comparison
 
@@ -94,7 +94,7 @@ Visualizes CESM terrain elevation over the United States at three different reso
 
 Similar to US Terrain Plot but covers the entire North America region.
 
-## 📁 Data Requirements
+## Data Requirements
 
 ### CESM Topography Files
 
@@ -130,7 +130,7 @@ Real-world elevation data used in this analysis is verified from:
 - Official city/municipal records
 - SNOTEL station metadata (NRCS)
 
-## 🔧 Dependencies
+## Dependencies
 
 See `requirements.txt` for the complete list. Key dependencies include:
 
@@ -141,7 +141,7 @@ See `requirements.txt` for the complete list. Key dependencies include:
 - `numpy` - Numerical operations
 - `pandas` - Data manipulation
 
-## 📈 Key Findings
+## Key Findings
 
 The analysis reveals:
 
@@ -150,48 +150,25 @@ The analysis reveals:
 - **Urban centers show better accuracy**: Major cities tend to have smaller elevation errors compared to remote mountain passes
 - **Bias patterns**: CESM tends to underestimate elevations in mountainous terrain across all resolutions
 
-## 🤝 Contributing
 
-Contributions are welcome! Please feel free to:
-- Report bugs or issues
-- Suggest improvements
-- Submit pull requests
-- Add additional analysis locations
-
-## 📝 Citation
-
-If you use this code or analysis in your research, please cite appropriately:
-
-```bibtex
-@software{cesm_terrain_snow,
-  title = {CESM Terrain and Snow Analysis},
-  author = {Your Name},
-  year = {2024},
-  url = {https://github.com/Austfi/CESM_terrain_snow}
-}
-```
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - CESM (Community Earth System Model) development team
 - USGS, NOAA, and NRCS for elevation data sources
 - The open-source scientific Python community
 
-## 📧 Contact
+## Contact
 
 For questions or issues, please open an issue on GitHub or contact the repository maintainer.
 
-## 🔗 Related Resources
+## Related Resources
 
 - [CESM Website](https://www.cesm.ucar.edu/)
 - [USGS National Elevation Dataset](https://www.usgs.gov/3d-elevation-program)
 - [SNOTEL Network](https://www.nrcs.usda.gov/wps/portal/wcc/home/aboutUs/monitoringPrograms/automatedSnowMonitoring/)
 
 ---
-
-**Last Updated**: December 2024
-

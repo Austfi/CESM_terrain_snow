@@ -11,12 +11,16 @@ __pycache__/
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Output files
-*.png
+# Output files (allow specific notebook outputs)
 *.jpg
 *.jpeg
-*.pdf
-*.csv
+# Allow notebook output files
+!mountain_city_elevation_comparison.png
+!mountain_city_elevation_comparison.csv
+!CESM_terrain_US_multiresolution.png
+!CESM_terrain_US_*.png
+!CESM_terrain_NA_multiresolution.png
+!CESM_terrain_NA_*.png
 
 # Environment files
 .env
